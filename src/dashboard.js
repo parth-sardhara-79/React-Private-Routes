@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import Auth from './auth';
 class Dashboard extends React.Component {
     componentDidMount() {
         let userid = localStorage.getItem('userId');
@@ -9,7 +10,8 @@ class Dashboard extends React.Component {
     }
     logOutHandler = () => {
         localStorage.removeItem('userId');
-        this.props.history.push('/login')
+        this.props.history.push('/login');
+        Auth.signout();
     }
     render() {
         let userid = localStorage.getItem('userId');
